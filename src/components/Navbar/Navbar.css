@@ -1,0 +1,41 @@
+.Navbar {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    text-transform: capitalize;
+
+}
+
+.Navbar li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid rgb(50, 166, 204);
+    border-radius: 7px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    
+    
+}
+
+.Navbar li:nth-child(even) {
+    margin-left: 20px;
+}
+
+.Navbar li a {
+    text-decoration: none;
+    color: rgb(45, 118, 143);
+    transition: all 0.5s ease-in-out;
+}
+
+.Navbar li:hover {
+    background: rgb(31, 78, 94);
+    
+}
+
+.Navbar li:hover a {
+    color: white;
+}
