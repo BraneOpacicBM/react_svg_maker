@@ -7,8 +7,10 @@ import Auxx from '../../hoc/Auxx/Auxx';
 class Canvas extends Component {
 
     state = {
-        shapePickerSelect: ['line', 'circle', 'square']
+        shapePickerSelect: ['line', 'circle', 'square'],
+        
     }
+
 
     render() {
 
@@ -29,7 +31,7 @@ class Canvas extends Component {
                     color picker for STROKE and FILL on the right side (Stateless component)
                 </li>
             </ul>
-            <ReactColorPicker/>
+            <ReactColorPicker />
             </Auxx>
         )
     }

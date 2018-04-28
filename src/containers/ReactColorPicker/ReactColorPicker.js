@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import reactCSS from 'reactcss';
 import { SketchPicker } from 'react-color';
 
+import { connect } from 'react-redux';
+
 class ReactColorPicker extends Component {
   state = {
     displayColorPicker: false,
@@ -31,11 +33,13 @@ class ReactColorPicker extends Component {
 
   handleChange = (color) => {
     this.setState({ color: color.rgb })
+
+    this.props.getTheColor(color.rgb)
   };
 
   render() {
 
-    console.log(this.getRGBA())
+    console.log(this.props.rgbaValue)
 
     const styles = reactCSS({
       'default': {
@@ -74,7 +78,9 @@ class ReactColorPicker extends Component {
         </div>
         { this.state.displayColorPicker ? <div style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+          <SketchPicker 
+          color={ this.state.color } 
+          onChange={ this.handleChange } />
         </div> : null }
 
       </div>
@@ -82,4 +88,16 @@ class ReactColorPicker extends Component {
   }
 }
 
-export default ReactColorPicker;
+const mapStateToProps = state => {
+  return {
+    rgbaValue: state.rgba
+  }
+}
+
+const mapDispatchToProsps = dispatch => {
+  return {
+    getTheColor: (rgba) => dispatch({type: 'RGBA_GET', val: rgba})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProsps)(ReactColorPicker);
