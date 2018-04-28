@@ -11,9 +11,9 @@ class App extends Component {
       <div className={classes.App}>
         <Navbar />
         <Switch>
-          <Route path="/canvas" exact component={Canvas} />
+          <Route path="/canvas" component={Canvas} />
           <Route path="/gallery" exact  component={Gallery}/>
-          <Redirect from="/" to="/canvas" />
+          <Redirect from="/" exact to="/canvas" />
         </Switch>
       </div>
     );

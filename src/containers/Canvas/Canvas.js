@@ -11,7 +11,7 @@ class Canvas extends Component {
     render() {
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
-            return <ShapePicker key={i} type={shape} />
+            return <ShapePicker key={i} type={shape} {...this.props} />
         })
 
         return(
