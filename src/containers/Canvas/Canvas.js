@@ -4,6 +4,8 @@ import StrokeColorPicker from '../StrokeColorPicker/StrokeColorPicker';
 import FillColorPicker from '../FillColorPicker/FillColorPicker';
 import Auxx from '../../hoc/Auxx/Auxx';
 
+import classes from './Canvas.css';
+
 
 class Canvas extends Component {
 
@@ -23,22 +25,29 @@ class Canvas extends Component {
 
         return(
             <Auxx>
-                {shapePicker}
-            <ul>
-                <li>
-                    Canvas for designing SVG (with SVG inside) 
-                </li>
-                <li>
-                    color picker for STROKE and FILL on the right side (Stateless component)
-                </li>
-            </ul>
-            <div>
-                Stroke
-                <StrokeColorPicker />
+                <div className="ShapePicker">
+                    {shapePicker}
+                </div>
+                
+            <div className={classes.MiddleCanvas}>
+                <ul>
+                    <li>
+                        Canvas for designing SVG (with SVG inside) 
+                    </li>
+                    <li>
+                        color picker for STROKE and FILL on the right side (Stateless component)
+                    </li>
+                </ul>
             </div>
-            <div>
-                FILL
-                <FillColorPicker />
+            <div className="StrokeAndFill">
+                <div>
+                    Stroke
+                    <StrokeColorPicker />
+                </div>
+                <div>
+                    FILL
+                    <FillColorPicker />
+                </div>
             </div>
             </Auxx>
         )

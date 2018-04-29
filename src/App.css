@@ -3,4 +3,20 @@
   
 }
 
+.MainArea {
+  display: flex;
+  width: 100%;
+  border: 10px solid gold;
+}
+
+.MainArea > * {
+  border: 5px solid purple;
+  flex: 1;
+}
+
+.MainArea > *:nth-child(2) {
+  border: 10px solid blue;
+  flex: 3;
+}
+
 

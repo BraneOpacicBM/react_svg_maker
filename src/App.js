@@ -16,11 +16,13 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Navbar />
+        <div className={classes.MainArea}>
         <Switch>
           <Route path="/canvas" component={Canvas} />
           <Route path="/gallery" exact  component={Gallery}/>
           <Redirect from="/" exact to="/canvas" />
         </Switch>
+        </div>
       </div>
     );
   }
