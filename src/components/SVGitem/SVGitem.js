@@ -6,21 +6,21 @@ const svgItem = (props) => {
 
     switch(props.type) {
         case 'circle':    
-            svg = <svg height="100%" width="100%">
-            <circle cx="50" cy="50" r="40" stroke="black" fill="red" />
+            svg = <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
+            <circle cx="10" cy="20" r="40" stroke="black" fill="red" />
             Sorry, your browser does not support inline SVG.  
           </svg> 
             break;
 
         case 'square':  
-            svg = <svg width="100%" height="100%">
-            <rect width="300" height="100" stroke="black" fill="red" />
+            svg = <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
+            <rect x="20" y="20" width="50" height="50" stroke="black" fill="red" />
             Sorry, your browser does not support inline SVG.  
           </svg>
             break;
 
         case 'line':  
-            svg = <svg height="100%" width="100%">
+            svg = <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
             <line x1="0" y1="0" x2="200" y2="200" stroke="black" fill="red" />
             Sorry, your browser does not support inline SVG.
           </svg>
