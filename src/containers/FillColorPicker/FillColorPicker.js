@@ -41,7 +41,7 @@ class FillColorPicker extends Component {
 
   render() {
 
-    console.log(this.props.rgbaValueFill)
+    // console.log(this.props.rgbaValueFill)
 
     const styles = reactCSS({
       'default': {

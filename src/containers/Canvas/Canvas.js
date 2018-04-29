@@ -3,6 +3,8 @@ import ShapePicker from '../../components/ShapePicker/ShapePicker';
 import StrokeColorPicker from '../StrokeColorPicker/StrokeColorPicker';
 import FillColorPicker from '../FillColorPicker/FillColorPicker';
 import Auxx from '../../hoc/Auxx/Auxx';
+import SVGitem from '../../components/SVGitem/SVGitem';
+import { Switch, Route } from 'react-router-dom';
 
 import classes from './Canvas.css';
 
@@ -14,8 +16,17 @@ class Canvas extends Component {
         
     }
 
+    getCoordinates = (e) => {
+        var rect = e.target.getBoundingClientRect();
+        var x = e.clientX - rect.left; //x position within the element.
+        var y = e.clientY - rect.top;  //y position within the element.
+        console.log(x,y)
+        
+    }
+
 
     render() {
+
 
        
 
@@ -29,15 +40,13 @@ class Canvas extends Component {
                     {shapePicker}
                 </div>
                 
-            <div className={classes.MiddleCanvas}>
-                <ul>
-                    <li>
-                        Canvas for designing SVG (with SVG inside) 
-                    </li>
-                    <li>
-                        color picker for STROKE and FILL on the right side (Stateless component)
-                    </li>
-                </ul>
+            <div onClick={this.getCoordinates} 
+            className={classes.MiddleCanvas}>
+                <Switch>
+                    <Route path={this.props.match.path + "/line"} exact component={() => <SVGitem type='line'/>} />
+                    <Route path={this.props.match.path + "/circle"} exact component={() => <SVGitem type='circle'/>} />
+                    <Route path={this.props.match.path + "/square"} exact component={() => <SVGitem type='square'/>} />
+                </Switch>
             </div>
             <div className="StrokeAndFill">
                 <div>

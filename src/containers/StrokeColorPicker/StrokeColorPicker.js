@@ -41,7 +41,7 @@ class StrokeColorPicker extends Component {
 
   render() {
 
-    console.log(this.props.rgbaStroke)
+    // console.log(this.props.rgbaStroke)
 
     const styles = reactCSS({
       'default': {
