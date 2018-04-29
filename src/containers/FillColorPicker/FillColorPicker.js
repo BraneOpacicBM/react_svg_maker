@@ -6,7 +6,9 @@ import { SketchPicker } from 'react-color';
 
 import { connect } from 'react-redux';
 
-class ReactColorPicker extends Component {
+ 
+
+class FillColorPicker extends Component {
   state = {
     displayColorPicker: false,
     color: {
@@ -39,7 +41,7 @@ class ReactColorPicker extends Component {
 
   render() {
 
-    console.log(this.props.rgbaValue)
+    console.log(this.props.rgbaValueFill)
 
     const styles = reactCSS({
       'default': {
@@ -90,14 +92,14 @@ class ReactColorPicker extends Component {
 
 const mapStateToProps = state => {
   return {
-    rgbaValue: state.rgba
+    rgbaValueFill: state.rgbaFill
   }
 }
 
 const mapDispatchToProsps = dispatch => {
   return {
-    getTheColor: (rgba) => dispatch({type: 'RGBA_GET', val: rgba})
+    getTheColor: (rgba) => dispatch({type: 'RGBA_GET_FILL', val: rgba})
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProsps)(ReactColorPicker);
+export default connect(mapStateToProps, mapDispatchToProsps)(FillColorPicker);

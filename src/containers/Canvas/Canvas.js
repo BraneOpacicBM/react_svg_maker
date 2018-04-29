@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShapePicker from '../../components/ShapePicker/ShapePicker';
-import ReactColorPicker from '../ReactColorPicker/ReactColorPicker';
+import StrokeColorPicker from '../StrokeColorPicker/StrokeColorPicker';
+import FillColorPicker from '../FillColorPicker/FillColorPicker';
 import Auxx from '../../hoc/Auxx/Auxx';
 
 
@@ -31,7 +32,14 @@ class Canvas extends Component {
                     color picker for STROKE and FILL on the right side (Stateless component)
                 </li>
             </ul>
-            <ReactColorPicker />
+            <div>
+                Stroke
+                <StrokeColorPicker />
+            </div>
+            <div>
+                FILL
+                <FillColorPicker />
+            </div>
             </Auxx>
         )
     }
