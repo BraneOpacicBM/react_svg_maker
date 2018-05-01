@@ -2,6 +2,7 @@ const initialState = {
     rgbaStroke: null,
     rgbaFill: null,
     coordinates: [],
+    resizeCoordinates: []
     
 }
 
@@ -51,6 +52,16 @@ const rootRouter = (state = initialState, action) => {
         }
         
         
+    }
+
+    if(action.type === 'RESIZE_COORDINATES') {
+
+        let updatedResizedCoordinates = [...action.value];
+
+        return {
+            ...state,
+            resizeCoordinates: updatedResizedCoordinates
+        }
     }
 
 

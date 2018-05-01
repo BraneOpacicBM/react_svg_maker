@@ -18,6 +18,8 @@ class Canvas extends Component {
 
     state = {
         shapePickerSelect: ['line', 'circle', 'square'],
+        resizedValues: []
+
         
     }
 
@@ -32,16 +34,50 @@ class Canvas extends Component {
         
     }
 
-    componentDidMount() {
-        this.props.resetCoordinates()
+    prepareCoordinates() {
+        let coordinatesArray = [];
+        let resizedMain = document.getElementById('resize');
+        coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
+        this.props.getResizedCoordinates(coordinatesArray)
+
     }
+
+    componentDidMount() {
+
+
+        const debounce = (func, wait, immediate) => {
+            var timeout;
+            return () => {
+                const context = this, args = arguments;
+                const later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+        
+        window.addEventListener('resize', debounce(() => this.prepareCoordinates(),
+200, false), false);
+        
+        
+        this.props.resetCoordinates()
+        
+    }
+
+
 
 
     render() {
 
-        console.log('Coordinates INSIDE REDUX:')
-        console.log(this.props.xyCord);
-       
+        // console.log('Coordinates INSIDE REDUX:')
+        // console.log(this.props.xyCord);
+        console.log('Did it work (from REDUX resize coordinates)')
+        console.log(this.props.resizedCoord)
+        
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
@@ -54,7 +90,7 @@ class Canvas extends Component {
                     {shapePicker}
                 </div>
                 
-            <div onClick={this.getCoordinates} 
+            <div id="resize" onClick={this.getCoordinates} 
             className={classes.MiddleCanvas}>
                 
                 <Switch>
@@ -82,6 +118,8 @@ class Canvas extends Component {
 const mapStateToProps = state => {
     return {
         xyCord: state.coordinates,
+        resizedCoord: state.resizeCoordinates
+        
         
     }
 }
@@ -89,7 +127,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         resetCoordinates: () => dispatch({type: 'RESET_COORDINATES'}),
-        insertCoordinates: (coordinatesValue) => dispatch({type: 'INSERT_COORDINATES', value: coordinatesValue})
+        insertCoordinates: (coordinatesValue) => dispatch({type: 'INSERT_COORDINATES', value: coordinatesValue}),
+        getResizedCoordinates: (resizeVal) => dispatch({type: 'RESIZE_COORDINATES', value: resizeVal})
     }
 }
 
