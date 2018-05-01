@@ -20,7 +20,8 @@ class App extends Component {
         <Switch>
           <Route path="/canvas" component={Canvas} />
           <Route path="/gallery" exact  component={Gallery}/>
-          <Redirect from="/" exact to="/canvas" />
+          <Redirect from="/canvas" exact to="/canvas/line" />
+          <Redirect from="/" exact to="/canvas/line" />
         </Switch>
         </div>
       </div>

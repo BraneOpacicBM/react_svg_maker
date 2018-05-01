@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const svgItem = (props) => {
+class SVGitem extends Component {
 
-    let svg = null;
 
-    switch(props.type) {
+    render() {
+        let svg = null;
+
+        
+
+    switch(this.props.type) {
         case 'circle':    
             svg = <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
             <circle cx="10" cy="20" r="40" stroke="black" fill="red" />
@@ -31,6 +36,21 @@ const svgItem = (props) => {
     }
     
     return svg;
+    }
 }
 
-export default svgItem;
+const mapStateToProps = state => {
+    return {
+        xyCord: state.coordinates,
+        
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        resetCoordinates: () => dispatch({type: 'RESET_COORDINATES'}),
+        
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SVGitem);
