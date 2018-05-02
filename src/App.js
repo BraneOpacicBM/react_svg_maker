@@ -3,11 +3,22 @@ import { Redirect, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Gallery from './components/Gallery/Gallery';
 import Canvas from './containers/Canvas/Canvas';
+import SaveBtn from './components/SaveBtn/SaveBtn';
 import classes from './App.css';
 
 
 
 class App extends Component {
+
+  componentDidMount() {
+    if(localStorage.getItem('gallery') == undefined ) {
+
+      const gallery = [];
+      localStorage.setItem('gallery', JSON.stringify(gallery))
+
+    }
+    
+  }
 
     
 
@@ -24,6 +35,10 @@ class App extends Component {
           <Redirect from="/" exact to="/canvas/line" />
         </Switch>
         </div>
+        <div>
+          <SaveBtn />
+        </div>
+
       </div>
     );
   }

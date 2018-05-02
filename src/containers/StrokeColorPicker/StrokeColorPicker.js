@@ -12,9 +12,9 @@ class StrokeColorPicker extends Component {
   state = {
     displayColorPicker: false,
     color: {
-      r: '241',
-      g: '112',
-      b: '19',
+      r: '0',
+      g: '0',
+      b: '0',
       a: '1',
     },
   };
