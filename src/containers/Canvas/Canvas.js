@@ -61,7 +61,7 @@ class Canvas extends Component {
         };
         
         window.addEventListener('resize', debounce(() => this.prepareCoordinates(),
-200, false), false);
+20, false), false);
         
         
         this.props.resetCoordinates()

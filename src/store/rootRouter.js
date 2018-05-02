@@ -1,6 +1,6 @@
 const initialState = {
-    rgbaStroke: null,
-    rgbaFill: null,
+    rgbaStroke: 'black',
+    rgbaFill: 'black',
     coordinates: [],
     resizeCoordinates: []
     
