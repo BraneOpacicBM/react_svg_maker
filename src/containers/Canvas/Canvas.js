@@ -17,7 +17,7 @@ import classes from './Canvas.css';
 class Canvas extends Component {
 
     state = {
-        shapePickerSelect: ['line', 'circle', 'square'],
+        shapePickerSelect: ['line', 'circle', 'rechtangle'],
         resizedValues: []
 
         
@@ -73,11 +73,6 @@ class Canvas extends Component {
 
     render() {
 
-        // console.log('Coordinates INSIDE REDUX:')
-        // console.log(this.props.xyCord);
-        console.log('Did it work (from REDUX resize coordinates)')
-        console.log(this.props.resizedCoord)
-        
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
@@ -96,7 +91,7 @@ class Canvas extends Component {
                 <Switch>
                     <Route path={this.props.match.path + "/line"} exact component={Line} />
                     <Route path={this.props.match.path + "/circle"} exact component={Circle} />
-                    <Route path={this.props.match.path + "/square"} exact component={Rechtangle} />
+                    <Route path={this.props.match.path + "/rechtangle"} exact component={Rechtangle} />
                 </Switch>
                
             </div>
@@ -118,7 +113,9 @@ class Canvas extends Component {
 const mapStateToProps = state => {
     return {
         xyCord: state.coordinates,
-        resizedCoord: state.resizeCoordinates
+        resizedCoord: state.resizeCoordinates,
+        rgbaStroke: state.rgbaStroke,
+        rgbaFill: state.rgbaFill
         
         
     }

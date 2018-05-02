@@ -16,8 +16,8 @@ const shapePicker = (props) => {
             shape = <div className="circle"><NavLink to={props.match.path + '/circle'}>Circle</NavLink></div>;
             break;
 
-        case 'square':  
-            shape = <div className="square"><NavLink to={props.match.path + '/square'}>Square</NavLink></div>;
+        case 'rechtangle':  
+            shape = <div className="rechtangle"><NavLink to={props.match.path + '/rechtangle'}>Rechtangle</NavLink></div>;
             break;
 
         default:
