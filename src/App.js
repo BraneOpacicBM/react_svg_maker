@@ -11,7 +11,7 @@ import classes from './App.css';
 class App extends Component {
 
   componentDidMount() {
-    if(localStorage.getItem('gallery') == undefined ) {
+    if(localStorage.getItem('gallery') === undefined ) {
 
       const gallery = [];
       localStorage.setItem('gallery', JSON.stringify(gallery))

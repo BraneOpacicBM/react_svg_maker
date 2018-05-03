@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import Line from '../../components/SVGitem/Line';
 import Circle from '../../components/SVGitem/Circle';
-import Rechtangle from '../../components/SVGitem/Rechtangle';
+import Square from '../../components/SVGitem/Square';
 
 import classes from './Canvas.css';
 
@@ -17,7 +17,7 @@ import classes from './Canvas.css';
 class Canvas extends Component {
 
     state = {
-        shapePickerSelect: ['line', 'circle', 'rechtangle'],
+        shapePickerSelect: ['line', 'circle', 'square'],
         resizedValues: []
 
         
@@ -81,7 +81,7 @@ class Canvas extends Component {
 
         return(
             <Auxx>
-                <div className="ShapePicker">
+                <div className={classes.ShapePicker}>
                     {shapePicker}
                 </div>
                 
@@ -91,18 +91,22 @@ class Canvas extends Component {
                 <Switch>
                     <Route path={this.props.match.path + "/line"} exact component={Line} />
                     <Route path={this.props.match.path + "/circle"} exact component={Circle} />
-                    <Route path={this.props.match.path + "/rechtangle"} exact component={Rechtangle} />
+                    <Route path={this.props.match.path + "/square"} exact component={Square} />
                 </Switch>
                
             </div>
-            <div className="StrokeAndFill">
-                <div>
-                    Stroke
-                    <StrokeColorPicker />
+            <div className={classes.StrokeAndFill}>
+                <div className={classes.Stroke}>
+                    <div className={classes.Dashed}>
+                        <h3>Stroke</h3>
+                        <StrokeColorPicker />
+                    </div>
                 </div>
-                <div>
-                    FILL
-                    <FillColorPicker />
+                <div className={classes.Fill}>
+                    <div className={classes.Dashed}>
+                        <h3>Fill</h3>
+                        <FillColorPicker />
+                    </div>
                 </div>
             </div>
             </Auxx>

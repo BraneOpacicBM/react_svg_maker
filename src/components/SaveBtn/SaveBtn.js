@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
+
+import classes from './SaveBtn.css';
 
 class SaveBtn extends Component {
 
@@ -22,7 +23,7 @@ class SaveBtn extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.saveShapeInfoHandler}>Save</button>
+                <button className={classes.SaveBtn} onClick={this.saveShapeInfoHandler}>Save</button>
             </div>  
         )
     }

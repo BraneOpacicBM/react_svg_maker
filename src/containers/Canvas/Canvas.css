@@ -1,6 +1,41 @@
 .MiddleCanvas {
     display: block;
-    
+    cursor: crosshair;
+
+}
+
+.ShapePicker {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.ShapePicker > * {
+    padding: 10px 20px;
+    margin: 0 auto;
+    border: 1px dashed rgb(50, 166, 204);
+    box-sizing: border-box;
+    background-color: rgb(240, 253, 255);
+}
+
+.StrokeAndFill {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgb(50, 166, 204);
+}
+
+
+
+.Dashed {
+    width: 60%;
+    padding: 10px 2px;
+    margin: 0 auto;
+    border: 1px dashed rgb(50, 166, 204);
+    box-sizing: border-box;
+    background-color: rgb(240, 253, 255);
     
 }
 
