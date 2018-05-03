@@ -29,6 +29,8 @@
 
 
 
+
+
 .Dashed {
     width: 60%;
     padding: 10px 2px;
@@ -39,3 +41,33 @@
     
 }
 
+
+
+@media screen and (max-width: 799px) {
+    .StrokeAndFill {
+      flex-direction: row;
+      box-sizing: border-box;
+      
+    }
+
+
+    .Dashed {
+        border: none;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+    
+
+  }
+
+
+  @media screen and (max-width: 419px) {
+
+  .ShapePicker > * {
+        padding: 5px 10px;
+        margin: 0 auto;
+        border: 1px dashed rgb(50, 166, 204);
+        box-sizing: border-box;
+        background-color: rgb(240, 253, 255);
+    }
+  }
