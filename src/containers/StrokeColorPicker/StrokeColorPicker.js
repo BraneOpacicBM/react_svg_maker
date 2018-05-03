@@ -23,6 +23,9 @@ class StrokeColorPicker extends Component {
     return `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`;
   }
 
+  handleChangeComplete = (color, event) => {
+    this.props.getTheColor(color.rgb)
+  };
   
 
   handleClick = () => {
@@ -36,7 +39,7 @@ class StrokeColorPicker extends Component {
   handleChange = (color) => {
     this.setState({ color: color.rgb })
 
-    this.props.getTheColor(color.rgb)
+    
   };
 
   render() {
@@ -61,6 +64,7 @@ class StrokeColorPicker extends Component {
         },
         popover: {
           position: 'absolute',
+          transform: 'translateX(-100%)',
           zIndex: '2',
         },
         cover: {
@@ -82,7 +86,8 @@ class StrokeColorPicker extends Component {
           <div style={ styles.cover } onClick={ this.handleClose }/>
           <SketchPicker 
           color={ this.state.color } 
-          onChange={ this.handleChange } />
+          onChange={ this.handleChange }
+          onChangeComplete={this.handleChangeComplete} />
         </div> : null }
 
       </div>

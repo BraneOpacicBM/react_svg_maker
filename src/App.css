@@ -15,7 +15,10 @@
 
 .MainArea > * {
   flex: 1;
+  box-sizing: border-box;
 }
+
+
 
 .MainArea > *:nth-child(2) {
   border-left: 1px dashed rgb(50, 166, 204);
@@ -27,6 +30,14 @@
 @media screen and (max-width: 799px) {
   .MainArea {
     flex-direction: column;
+  }
+
+  .MainArea > *:nth-child(2) {
+    border-top: 1px dashed rgb(50, 166, 204);
+    border-bottom: 1px dashed rgb(50, 166, 204);
+    border-left: none;
+    border-right: none;
+    
   }
 }
 
