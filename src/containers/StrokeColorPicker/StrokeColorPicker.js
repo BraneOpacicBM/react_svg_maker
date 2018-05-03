@@ -64,7 +64,6 @@ class StrokeColorPicker extends Component {
         },
         popover: {
           position: 'absolute',
-          transform: 'translateX(-100%)',
           zIndex: '2',
         },
         cover: {
