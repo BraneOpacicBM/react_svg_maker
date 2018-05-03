@@ -7,19 +7,19 @@
 .MainArea {
   display: flex;
   width: 100%;
-  border: 10px solid gold;
+  border: 1px dashed rgb(50, 166, 204);
   height: 70vh;
   box-sizing: border-box;
   
 }
 
 .MainArea > * {
-  border: 5px solid purple;
   flex: 1;
 }
 
 .MainArea > *:nth-child(2) {
-  border: 10px solid blue;
+  border-left: 1px dashed rgb(50, 166, 204);
+  border-right: 1px dashed rgb(50, 166, 204);
   flex: 3;
 }
 
