@@ -58,6 +58,12 @@
         background-color: #fff;
         box-sizing: border-box;
     }
+
+    .MiddleCanvas {
+        overflow: hidden;
+    }
+
+   
     
 
   }
@@ -85,11 +91,3 @@
     
   }
 
-  @media screen and (max-width: 799px) {
-
-
-        .MiddleCanvas {
-            overflow: hidden;
-        }
-
-  }

@@ -50,6 +50,7 @@ class FillColorPicker extends Component {
     const styles = reactCSS({
       'default': {
         color: {
+          position: 'relative',
           width: '36px',
           height: '14px',
           borderRadius: '2px',
@@ -65,6 +66,8 @@ class FillColorPicker extends Component {
         },
         popover: {
           position: 'absolute',
+          right: '0',
+          bottom: '0',
           zIndex: '2',
         },
         cover: {

@@ -6,6 +6,8 @@ import { SketchPicker } from 'react-color';
 
 import { connect } from 'react-redux';
 
+
+import classes from './StrokeColorPicker.css';
  
 
 class StrokeColorPicker extends Component {
@@ -64,6 +66,7 @@ class StrokeColorPicker extends Component {
         },
         popover: {
           position: 'absolute',
+          right: '0',
           zIndex: '2',
         },
         cover: {
@@ -81,7 +84,7 @@ class StrokeColorPicker extends Component {
         <div style={ styles.swatch } onClick={ this.handleClick }>
           <div style={ styles.color } />
         </div>
-        { this.state.displayColorPicker ? <div style={ styles.popover }>
+        { this.state.displayColorPicker ? <div className={classes.MobilePopOver} style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose }/>
           <SketchPicker 
           color={ this.state.color } 
