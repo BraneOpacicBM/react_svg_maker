@@ -15,12 +15,7 @@ class Circle extends Component {
 
     render() {
 
-        // return(
-        //     <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
-        //         <circle cx="10" cy="20" r="20" stroke="black" fill="red" />
-        //         Sorry, your browser does not support inline SVG.  
-        //     </svg> 
-        // )
+        const devider = this.props.coordinates / 100;
 
         let svg = null;
 
@@ -29,10 +24,11 @@ class Circle extends Component {
                 <svg className={classes.SVG} 
                 height="100%"
                 width="100%"
+                viewBox="0, 0, 100, 100"
                 // viewBox={"0 0 " + this.props.resizedCoord[0] + " " + this.props.resizedCoord[1]}
                 >   <circle className={classes.Circle} 
-                cx={this.props.xyCord[0][0]} cy={this.props.xyCord[0][1]} 
-                r={Math.sqrt(Math.pow(this.props.xyCord[1][0], 2) - 2 * this.props.xyCord[1][0] * this.props.xyCord[0][0] + Math.pow(this.props.xyCord[0][0], 2) +  Math.pow(this.props.xyCord[1][1], 2) - 2 * this.props.xyCord[1][1] * this.props.xyCord[0][1] + Math.pow(this.props.xyCord[0][1], 2))} 
+                cx={this.props.xyCord[0][0] / devider} cy={this.props.xyCord[0][1] / devider} 
+                r={Math.sqrt(Math.pow(this.props.xyCord[1][0], 2) - 2 * this.props.xyCord[1][0] * this.props.xyCord[0][0] + Math.pow(this.props.xyCord[0][0], 2) +  Math.pow(this.props.xyCord[1][1], 2) - 2 * this.props.xyCord[1][1] * this.props.xyCord[0][1] + Math.pow(this.props.xyCord[0][1], 2)) / devider} 
                 stroke={this.getRGBA(this.props.rgbaStroke.r, this.props.rgbaStroke.g, this.props.rgbaStroke.b, this.props.rgbaStroke.a )}
                 fill={this.getRGBA(this.props.rgbaFill.r, this.props.rgbaFill.g, this.props.rgbaFill.b, this.props.rgbaFill.a)}/>
                         Sorry, your browser does not support inline SVG. 

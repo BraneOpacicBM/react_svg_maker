@@ -1,6 +1,15 @@
+.SquareDiv {
+    height: 600px;
+    width: 600px;
+    border: 1px dashed rgb(50, 166, 204);
+    margin: auto;
+    box-sizing: border-box;
+}
+
 .MiddleCanvas {
     display: block;
     cursor: crosshair;
+    display: flex;
 
 }
 
@@ -48,7 +57,7 @@
     .StrokeAndFill {
       flex-direction: row;
       box-sizing: border-box;
-      padding-bottom: 80px;
+      padding-bottom: 20px;
       
     }
 
@@ -63,8 +72,30 @@
         overflow: hidden;
     }
 
+    .SquareDiv {
+        height: 300px;
+        width: 300px;
+        
+    }
+
    
     
+
+  }
+
+  @media screen and (max-width: 1099px) {
+    .SquareDiv {
+        height: 500px;
+        width: 500px;
+    }
+
+  }
+
+  @media screen and (max-width: 859px) {
+    .SquareDiv {
+        height: 400px;
+        width: 400px;
+    }
 
   }
 
@@ -76,9 +107,7 @@
         padding-bottom: 80px;
     }
 
-    .ShapePicker {
-        padding: 40px 0px;
-    }
+    
 
     .ShapePicker > * {
         padding: 5px 10px;
@@ -88,6 +117,29 @@
         background-color: rgb(240, 253, 255);
     }
 
+    .SquareDiv {
+        height: 280px;
+        width: 280px;
+        
+    }
+
     
+  }
+
+  @media screen and (max-height: 799px) {
+      
+    .SquareDiv {
+        height: 300px;
+        width: 300px;
+    }
+
+  }
+
+  @media screen and (max-height: 739px) {
+    .SquareDiv {
+        height: 250px;
+        width: 250px;
+    }
+
   }
 

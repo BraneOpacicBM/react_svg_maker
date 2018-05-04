@@ -15,12 +15,7 @@ class Rechtangle extends Component {
 
     render() {
 
-        // return(
-        //     <svg  viewBox="0 0 100 100" preserveAspectRatio="xMinYMax meet">
-        //         <rect x="0" y="0" width="0" height="0" stroke="black" fill="red" />
-        //         Sorry, your browser does not support inline SVG.  
-        //     </svg>
-        // )
+        const devider = this.props.coordinates / 100;
 
         let svg = null;
         
@@ -30,13 +25,14 @@ class Rechtangle extends Component {
                 <svg className={classes.SVG} 
                 height="100%"
                 width="100%"
+                viewBox="0, 0, 100, 100"
                 // viewBox={"0 0 " + this.props.resizedCoord[0] + " " + this.props.resizedCoord[1]}
                 >   
                 <rect 
-                x={this.props.xyCord[0][0]} 
-                y={this.props.xyCord[0][1]}
-                height={Math.abs(this.props.xyCord[1][1] - this.props.xyCord[0][1])} 
-                width={Math.abs(this.props.xyCord[1][0] - this.props.xyCord[0][0])} 
+                x={this.props.xyCord[0][0] / devider} 
+                y={this.props.xyCord[0][1] / devider}
+                height={Math.abs(this.props.xyCord[1][1] - this.props.xyCord[0][1]) / devider} 
+                width={Math.abs(this.props.xyCord[1][0] - this.props.xyCord[0][0]) / devider} 
                 stroke={this.getRGBA(this.props.rgbaStroke.r, this.props.rgbaStroke.g, this.props.rgbaStroke.b, this.props.rgbaStroke.a )} 
                 fill={this.getRGBA(this.props.rgbaFill.r, this.props.rgbaFill.g, this.props.rgbaFill.b, this.props.rgbaFill.a)} />
                 Sorry, your browser does not support inline SVG.  

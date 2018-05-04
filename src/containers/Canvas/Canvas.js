@@ -18,9 +18,8 @@ class Canvas extends Component {
 
     state = {
         shapePickerSelect: ['line', 'circle', 'square'],
-        resizedValues: []
-
-        
+        resizedValues: [],
+        coordinatesValue: null
     }
 
     getCoordinates = (e) => {
@@ -34,11 +33,19 @@ class Canvas extends Component {
         
     }
 
+    passCoordinatesToSVG = () => {
+        const resizeDiv = document.getElementById('resize');
+        return resizeDiv.offsetWidth;
+
+    }
+
     prepareCoordinates() {
         let coordinatesArray = [];
         let resizedMain = document.getElementById('resize');
         coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
-        this.props.getResizedCoordinates(coordinatesArray)
+        this.props.getResizedCoordinates(coordinatesArray);
+
+        
 
     }
 
@@ -59,10 +66,16 @@ class Canvas extends Component {
                 if (callNow) func.apply(context, args);
             };
         };
+
+        window.addEventListener('onload', this.prepareCoordinates());
         
         window.addEventListener('resize', debounce(() => this.prepareCoordinates(),
 20, false), false);
-        
+
+
+        this.setState({
+            coordinatesValue: document.getElementById('resize').offsetWidth
+        })
         
         this.props.resetCoordinates()
         
@@ -73,6 +86,8 @@ class Canvas extends Component {
 
     render() {
 
+        console.log('CANVAS VALUUEE')
+        console.log(this.state.coordinatesValue)
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
@@ -85,14 +100,16 @@ class Canvas extends Component {
                     {shapePicker}
                 </div>
                 
-            <div id="resize" onClick={this.getCoordinates} 
+            <div  
             className={classes.MiddleCanvas}>
                 
-                <Switch>
-                    <Route path={this.props.match.path + "/line"} exact component={Line} />
-                    <Route path={this.props.match.path + "/circle"} exact component={Circle} />
-                    <Route path={this.props.match.path + "/square"} exact component={Square} />
-                </Switch>
+                <div id="resize" onClick={this.getCoordinates} className={classes.SquareDiv} >
+                    <Switch>
+                        <Route path={this.props.match.path + "/line"} exact render={()=> <Line coordinates={this.state.coordinatesValue} />} />
+                        <Route path={this.props.match.path + "/circle"} exact render={()=> <Circle coordinates={this.state.coordinatesValue} />} />
+                        <Route path={this.props.match.path + "/square"} render={()=> <Square coordinates={this.state.coordinatesValue} />} />
+                    </Switch>
+                </div>
                
             </div>
             <div className={classes.StrokeAndFill}>
