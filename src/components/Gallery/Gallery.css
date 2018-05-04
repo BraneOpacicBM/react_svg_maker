@@ -1,0 +1,12 @@
+.GalleryInside {
+    background-color: red;
+    color: blue;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    min-height: 70vh;
+    
+}
