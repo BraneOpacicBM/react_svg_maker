@@ -12,7 +12,8 @@ const initialState = {
         a: 1
     },
     coordinates: [],
-    resizeCoordinates: []
+    resizeCoordinates: [],
+    elementType: undefined
     
 }
 
@@ -71,6 +72,25 @@ const rootRouter = (state = initialState, action) => {
         return {
             ...state,
             resizeCoordinates: updatedResizedCoordinates
+        }
+    }
+
+    if(action.type === 'ELEMENT_TYPE') {
+        if(action.value === 'line') {
+            return {
+                ...state,
+                elementType: 'line'
+            }
+        } else if(action.value === 'circle') {
+            return {
+                ...state,
+                elementType: 'circle'
+            }
+        } else if (action.value === 'square') {
+            return {
+                ...state,
+                elementType: 'square'
+            }
         }
     }
 

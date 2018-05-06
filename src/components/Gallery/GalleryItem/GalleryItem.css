@@ -1,0 +1,7 @@
+.Wrapper {
+    border: 1px solid gold;
+    margin: 10px 10px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}

@@ -11,6 +11,7 @@ class Line extends Component {
     componentDidMount() {
 
         this.props.resetCoordinates()
+        this.props.getElementType()
     }
 
 
@@ -52,13 +53,15 @@ const mapStateToProps = state => {
         xyCord: state.coordinates,
         resizedCoord: state.resizeCoordinates,
         rgbaStroke: state.rgbaStroke,
-        rgbaFill: state.rgbaFill
+        rgbaFill: state.rgbaFill,
+        elementType: state.elementType
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         resetCoordinates: () => dispatch({type: 'RESET_COORDINATES'}),
+        getElementType: () => dispatch({type: 'ELEMENT_TYPE', value: 'line'})
         
     }
 }

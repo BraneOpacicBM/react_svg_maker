@@ -7,6 +7,7 @@ class Circle extends Component {
 
     componentDidMount() {
         this.props.resetCoordinates()
+        this.props.getElementType()
     }
 
     getRGBA = (r, g, b, a) => {
@@ -53,6 +54,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         resetCoordinates: () => dispatch({type: 'RESET_COORDINATES'}),
+        getElementType: () => dispatch({type: 'ELEMENT_TYPE', value: 'circle'})
         
     }
 }
