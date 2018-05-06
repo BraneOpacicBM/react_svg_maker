@@ -11,7 +11,8 @@ class SaveBtn extends Component {
                 xyCord: this.props.xyCord,
                 rgbaFill: this.props.rgbaFill,
                 rgbaStroke: this.props.rgbaStroke,
-                elementType: this.props.elementType
+                elementType: this.props.elementType,
+                resizedCoord: this.props.resizedCoord
             }
             console.log(coordinatesForGallery);
             const gallery = JSON.parse(localStorage.getItem('gallery'))
@@ -40,7 +41,8 @@ const mapStateToProps = state => {
         resizedCoord: state.resizeCoordinates,
         rgbaStroke: state.rgbaStroke,
         rgbaFill: state.rgbaFill,
-        elementType: state.elementType
+        elementType: state.elementType,
+        
     }
 }
 
