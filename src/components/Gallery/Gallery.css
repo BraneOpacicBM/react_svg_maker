@@ -13,11 +13,3 @@
     min-height: 70vh;
     
 }
-
-.Test {
-    border: 1px dashed rgb(50, 166, 204);
-    margin: 10px 10px;
-    height: 100px;
-    width: 100px;
-    display: inline-block;
-}

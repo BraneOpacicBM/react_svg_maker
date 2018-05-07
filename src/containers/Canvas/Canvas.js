@@ -28,34 +28,22 @@ class Canvas extends Component {
         let x = (e.clientX - rect.left) / devider; 
         let y = (e.clientY - rect.top) / devider;  
         let coordinatesArray = [x, y];
-        
-        console.log('Coordinates when clicked:')
-        console.log(coordinatesArray)
         this.props.insertCoordinates(coordinatesArray)
         
     }
 
-    passCoordinatesToSVG = () => {
-        const resizeDiv = document.getElementById('resize');
-        return resizeDiv.offsetWidth;
-
-    }
+    
 
     prepareCoordinates() {
         let coordinatesArray = [];
         let resizedMain = document.getElementById('resize');
         
         if(resizedMain){
-            let devider = resizedMain.offsetWidth / 100;
+           
             coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
-            console.log('COORDINATES ARRAY')
-            console.log(coordinatesArray)
             this.props.getResizedCoordinates(coordinatesArray);
-            this.props.getDevider(devider);
+            
         }
-        
-
-        
 
     }
 
@@ -98,13 +86,6 @@ class Canvas extends Component {
 
 
     render() {
-
-        console.log('CANVAS CORDINATES VALUE')
-        console.log(this.state.coordinatesValue)
-        // console.log('from CANVAS PROPS.matchPATH')
-        // console.log(this.props.match.path)
-        // console.log('THIS IS OUR DEVIDER')
-        // console.log(this.state.devideBy)
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
@@ -122,9 +103,9 @@ class Canvas extends Component {
                 
                 <div id="resize" onClick={this.getCoordinates} className={classes.SquareDiv} >
                     <Switch>
-                        <Route path={this.props.match.path + "/line"} exact render={()=> <Line coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
-                        <Route path={this.props.match.path + "/circle"} exact render={()=> <Circle coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
-                        <Route path={this.props.match.path + "/square"} render={()=> <Square coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
+                        <Route path={this.props.match.path + "/line"} exact render={()=> <Line coordinates={this.state.coordinatesValue} />} />
+                        <Route path={this.props.match.path + "/circle"} exact render={()=> <Circle coordinates={this.state.coordinatesValue} />} />
+                        <Route path={this.props.match.path + "/square"} render={()=> <Square coordinates={this.state.coordinatesValue} />} />
                     </Switch>
                 </div>
                

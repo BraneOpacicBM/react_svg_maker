@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import classes from './SVGitem.css';
 
 class Line extends Component {

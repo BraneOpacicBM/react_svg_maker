@@ -21,9 +21,7 @@ class FillColorPicker extends Component {
     },
   };
 
-  getRGBA = () => {
-    return `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`;
-  }
+  
 
   handleChangeComplete = (color, event) => {
     this.props.getTheColor(color.rgb)
@@ -47,7 +45,6 @@ class FillColorPicker extends Component {
 
   render() {
 
-    // console.log(this.props.rgbaValueFill)
 
     const styles = reactCSS({
       'default': {

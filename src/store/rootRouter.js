@@ -37,8 +37,6 @@ const rootRouter = (state = initialState, action) => {
     }
 
     if(action.type === 'RESET_COORDINATES') {
-
-        
         return {
             ...state,
             coordinates: []

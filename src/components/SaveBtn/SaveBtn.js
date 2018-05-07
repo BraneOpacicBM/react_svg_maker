@@ -14,12 +14,11 @@ class SaveBtn extends Component {
                 elementType: this.props.elementType,
                 resizedCoord: this.props.resizedCoord
             }
-            console.log(coordinatesForGallery);
             const gallery = JSON.parse(localStorage.getItem('gallery'))
             gallery.push(coordinatesForGallery);
             localStorage.setItem('gallery', JSON.stringify(gallery));
             this.props.resetCoordinates();
-            alert('saved to gallery');
+            alert('Saved to gallery!');
             
         }
     }

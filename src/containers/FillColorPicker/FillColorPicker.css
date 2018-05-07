@@ -1,13 +1,6 @@
+
 .MobilePopOver {
     right: 0;
-    transform: translateY(-50%);
-}
+    bottom: 0;
 
-
-@media screen and (max-width: 645px) {
-    .MobilePopOver {
-        bottom: 0;
-        right: 0;
-        transform: unset;
-    }
 }

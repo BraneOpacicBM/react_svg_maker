@@ -21,9 +21,7 @@ class StrokeColorPicker extends Component {
     },
   };
 
-  getRGBA = () => {
-    return `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`;
-  }
+
 
   handleChangeComplete = (color, event) => {
     this.props.getTheColor(color.rgb)
@@ -46,7 +44,7 @@ class StrokeColorPicker extends Component {
 
   render() {
 
-    // console.log(this.props.rgbaStroke)
+
 
     const styles = reactCSS({
       'default': {
