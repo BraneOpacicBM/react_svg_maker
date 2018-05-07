@@ -3,8 +3,10 @@
 import React, { Component } from 'react';
 import reactCSS from 'reactcss';
 import { SketchPicker } from 'react-color';
-
 import { connect } from 'react-redux';
+
+import classes from './FillColorPicker.css'
+
 
  
 
@@ -66,8 +68,6 @@ class FillColorPicker extends Component {
         },
         popover: {
           position: 'absolute',
-          right: '0',
-          bottom: '0',
           zIndex: '2',
         },
         cover: {
@@ -85,7 +85,7 @@ class FillColorPicker extends Component {
         <div style={ styles.swatch } onClick={ this.handleClick }>
           <div style={ styles.color } />
         </div>
-        { this.state.displayColorPicker ? <div style={ styles.popover }>
+        { this.state.displayColorPicker ? <div className={classes.MobilePopOver} style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose }/>
           <SketchPicker 
           color={ this.state.color } 

@@ -1,6 +1,9 @@
+.Gallery {
+    width: 100% !important;
+}
+
 .GalleryInside {
-    background-color: red;
-    color: blue;
+
     display: block;
     width: 70%;
     margin: 0 auto;
@@ -9,4 +12,12 @@
     box-sizing: border-box;
     min-height: 70vh;
     
+}
+
+.Test {
+    border: 1px dashed rgb(50, 166, 204);
+    margin: 10px 10px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
 }

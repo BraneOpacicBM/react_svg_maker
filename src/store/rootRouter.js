@@ -13,7 +13,8 @@ const initialState = {
     },
     coordinates: [],
     resizeCoordinates: [],
-    elementType: undefined
+    elementType: undefined,
+    devider: null
     
 }
 
@@ -91,6 +92,13 @@ const rootRouter = (state = initialState, action) => {
                 ...state,
                 elementType: 'square'
             }
+        }
+    }
+
+    if(action.type === 'GET_DEVIDER') {
+        return {
+            ...state,
+            devider: action.value
         }
     }
 

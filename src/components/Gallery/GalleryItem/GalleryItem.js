@@ -54,27 +54,162 @@ const galleryItem = (props) => {
                 )
             } else if (el.elementType === 'square'){
                 const devider = el.resizedCoord[0] / 100;
-                return (
-                    <div className={classes.Wrapper} key={i}>
-                        <div className="square">
-                            <svg className="" 
-                                height="100%"
-                                width="100%"
-                                viewBox="0, 0, 100, 100"                   
-                                >
-                                <rect 
-                                x={el.xyCord[0][0] / devider} 
-                                y={el.xyCord[0][1] / devider}
-                                height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider} 
-                                width={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) / devider } 
-                                stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
-                                fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
-                                Sorry, your browser does not support inline SVG.  
-                            </svg>
+                // I quadrant (top-left)
+                if(el.xyCord[0][0] > el.xyCord[1][0] && el.xyCord[0][1] > el.xyCord[1][1] ) {
+                    if(el.xyCord[0][1] > el.xyCord[0][0]) {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect 
+                                        x={el.xyCord[1][0] / devider} 
+                                        y={el.xyCord[1][1] / devider}
+                                        height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider} 
+                                        width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect 
+                                        x={el.xyCord[1][0] / devider} 
+                                        y={el.xyCord[1][1] / devider}
+                                        height={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) / devider} 
+                                        width={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) / devider } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    }
+                }
 
+                // II quadrant (top-right)
+                if(el.xyCord[0][0] < el.xyCord[1][0] && el.xyCord[0][1] > el.xyCord[1][1] ) {
+                   
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect
+                                        transform={"translate(0 -" + Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider + ")" } 
+                                        x={el.xyCord[0][0] / devider} 
+                                        y={el.xyCord[0][1] / devider}
+                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider} 
+                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    
+                }
+
+                 // IV quadrant (top-right)
+                 if(el.xyCord[0][0] > el.xyCord[1][0] && el.xyCord[0][1] < el.xyCord[1][1] ) {
+                   
+                    return (
+                        <div className={classes.Wrapper} key={i}>
+                            <div className="square">
+                                <svg className="" 
+                                    height="100%"
+                                    width="100%"
+                                    viewBox="0, 0, 100, 100"                   
+                                    >
+                                    <rect
+                                    transform={"translate(0 -" + Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider + ")" } 
+                                    x={el.xyCord[1][0] / devider} 
+                                    y={el.xyCord[1][1] / devider}
+                                    height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider} 
+                                    width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider } 
+                                    stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                    fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                    Sorry, your browser does not support inline SVG.  
+                                </svg>
+    
+                            </div>
                         </div>
-                    </div>
-                )
+                    )
+                
+            }
+
+                // III quadrant (right-bottom)
+                if(el.xyCord[0][0] < el.xyCord[1][0] && el.xyCord[0][1] < el.xyCord[1][1] ) {
+                    if(el.xyCord[1][1] > el.xyCord[1][0]) {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect 
+                                        x={el.xyCord[0][0] / devider} 
+                                        y={el.xyCord[0][1] / devider}
+                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider} 
+                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect 
+                                        x={el.xyCord[0][0] / devider} 
+                                        y={el.xyCord[0][1] / devider}
+                                        height={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) / devider} 
+                                        width={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) / devider } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    }
+                }
+
+                
+                
             }
         })
     }

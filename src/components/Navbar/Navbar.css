@@ -46,6 +46,10 @@
 
 @media screen and (max-width: 419px) {
 
+    .Navbar {
+        margin-top: 10px;
+    }
+
     .Navbar li {
         display: block;
         

@@ -3,7 +3,6 @@ import ShapePicker from '../../components/ShapePicker/ShapePicker';
 import StrokeColorPicker from '../StrokeColorPicker/StrokeColorPicker';
 import FillColorPicker from '../FillColorPicker/FillColorPicker';
 import Auxx from '../../hoc/Auxx/Auxx';
-// import SVGitem from '../../components/SVGitem/SVGitem';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -19,14 +18,17 @@ class Canvas extends Component {
     state = {
         shapePickerSelect: ['line', 'circle', 'square'],
         resizedValues: [],
-        coordinatesValue: null
+        coordinatesValue: null,
+        devideBy: null
     }
 
     getCoordinates = (e) => {
+        const devider = document.getElementById('resize').offsetWidth / 100;
         let rect = e.target.getBoundingClientRect();
-        let x = e.clientX - rect.left; //x position within the element.
-        let y = e.clientY - rect.top;  //y position within the element.
+        let x = (e.clientX - rect.left) / devider; 
+        let y = (e.clientY - rect.top) / devider;  
         let coordinatesArray = [x, y];
+        
         console.log('Coordinates when clicked:')
         console.log(coordinatesArray)
         this.props.insertCoordinates(coordinatesArray)
@@ -42,9 +44,14 @@ class Canvas extends Component {
     prepareCoordinates() {
         let coordinatesArray = [];
         let resizedMain = document.getElementById('resize');
+        
         if(resizedMain){
+            let devider = resizedMain.offsetWidth / 100;
             coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
+            console.log('COORDINATES ARRAY')
+            console.log(coordinatesArray)
             this.props.getResizedCoordinates(coordinatesArray);
+            this.props.getDevider(devider);
         }
         
 
@@ -79,7 +86,8 @@ class Canvas extends Component {
 
 
         this.setState({
-            coordinatesValue: document.getElementById('resize').offsetWidth
+            coordinatesValue: document.getElementById('resize').offsetWidth,
+            devideBy: document.getElementById('resize').offsetWidth / 100
         })
         
         this.props.resetCoordinates()
@@ -91,10 +99,12 @@ class Canvas extends Component {
 
     render() {
 
-        console.log('CANVAS VALUUEE')
+        console.log('CANVAS CORDINATES VALUE')
         console.log(this.state.coordinatesValue)
-        console.log('from CANVAS PROPS.matchPATH')
-        console.log(this.props.match.path)
+        // console.log('from CANVAS PROPS.matchPATH')
+        // console.log(this.props.match.path)
+        // console.log('THIS IS OUR DEVIDER')
+        // console.log(this.state.devideBy)
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
@@ -112,9 +122,9 @@ class Canvas extends Component {
                 
                 <div id="resize" onClick={this.getCoordinates} className={classes.SquareDiv} >
                     <Switch>
-                        <Route path={this.props.match.path + "/line"} exact render={()=> <Line coordinates={this.state.coordinatesValue} />} />
-                        <Route path={this.props.match.path + "/circle"} exact render={()=> <Circle coordinates={this.state.coordinatesValue} />} />
-                        <Route path={this.props.match.path + "/square"} render={()=> <Square coordinates={this.state.coordinatesValue} />} />
+                        <Route path={this.props.match.path + "/line"} exact render={()=> <Line coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
+                        <Route path={this.props.match.path + "/circle"} exact render={()=> <Circle coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
+                        <Route path={this.props.match.path + "/square"} render={()=> <Square coordinates={this.state.coordinatesValue} devideBy={this.state.devideBy} />} />
                     </Switch>
                 </div>
                
@@ -153,7 +163,8 @@ const mapDispatchToProps = dispatch => {
     return {
         resetCoordinates: () => dispatch({type: 'RESET_COORDINATES'}),
         insertCoordinates: (coordinatesValue) => dispatch({type: 'INSERT_COORDINATES', value: coordinatesValue}),
-        getResizedCoordinates: (resizeVal) => dispatch({type: 'RESIZE_COORDINATES', value: resizeVal})
+        getResizedCoordinates: (resizeVal) => dispatch({type: 'RESIZE_COORDINATES', value: resizeVal}),
+        getDevider: (devider) => dispatch({type: 'GET_DEVIDER', value: devider})
     }
 }
 
