@@ -261,7 +261,11 @@ const galleryItem = (props) => {
                 
                 
             }
+            return null;
         })
+
+    } else {
+        return null;
     }
 
     return (
