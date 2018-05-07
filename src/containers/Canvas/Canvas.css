@@ -58,7 +58,7 @@
 
   }
 
-  @media screen and (max-width: 549px) {
+  @media screen and (max-width: 645px) {
 
     .ShapePicker {
         display: block;
