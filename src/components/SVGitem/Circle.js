@@ -16,7 +16,7 @@ class Circle extends Component {
 
     render() {
 
-        const devider = this.props.coordinates / 100;
+        
 
         let svg = null;
 

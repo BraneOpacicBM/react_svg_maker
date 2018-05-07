@@ -3,7 +3,6 @@ import ShapePicker from '../../components/ShapePicker/ShapePicker';
 import StrokeColorPicker from '../StrokeColorPicker/StrokeColorPicker';
 import FillColorPicker from '../FillColorPicker/FillColorPicker';
 import Auxx from '../../hoc/Auxx/Auxx';
-// import SVGitem from '../../components/SVGitem/SVGitem';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -26,8 +25,8 @@ class Canvas extends Component {
     getCoordinates = (e) => {
         const devider = document.getElementById('resize').offsetWidth / 100;
         let rect = e.target.getBoundingClientRect();
-        let x = (e.clientX - rect.left) / devider; //x position within the element.
-        let y = (e.clientY - rect.top) / devider;  //y position within the element.
+        let x = (e.clientX - rect.left) / devider; 
+        let y = (e.clientY - rect.top) / devider;  
         let coordinatesArray = [x, y];
         
         console.log('Coordinates when clicked:')
@@ -45,8 +44,9 @@ class Canvas extends Component {
     prepareCoordinates() {
         let coordinatesArray = [];
         let resizedMain = document.getElementById('resize');
-        let devider = resizedMain.offsetWidth / 100;
+        
         if(resizedMain){
+            let devider = resizedMain.offsetWidth / 100;
             coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
             console.log('COORDINATES ARRAY')
             console.log(coordinatesArray)

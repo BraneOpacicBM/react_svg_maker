@@ -16,7 +16,7 @@ class Rechtangle extends Component {
 
     render() {
 
-        const devider = this.props.coordinates / 100;
+        
 
         let svg = null;
         
@@ -124,7 +124,7 @@ class Rechtangle extends Component {
 
             // III quadrant (right-bottom)
             if(this.props.xyCord[0][0] < this.props.xyCord[1][0] && this.props.xyCord[0][1] < this.props.xyCord[1][1] ) {
-                 if(this.props.xyCord[1][1] > this.props.xyCord[1][0]) {
+                 if(Math.abs(this.props.xyCord[1][1] - this.props.xyCord[0][1]) > Math.abs(this.props.xyCord[1][0] - this.props.xyCord[0][0])) {
                     svg = (
                         <svg className={classes.SVG} 
                         height="100%"

@@ -53,10 +53,6 @@
 
 
 
-@media screen and (max-width: 799px) {
-    
-
-  }
 
   @media screen and (max-width: 645px) {
 
@@ -97,15 +93,7 @@
       
   }
 
-  @media screen and (max-width: 1099px) {
-    
 
-  }
-
-  @media screen and (max-width: 859px) {
-    
-
-  }
 
 
   @media screen and (max-width: 419px) {
@@ -118,18 +106,17 @@
         background-color: rgb(240, 253, 255);
     }
 
-   
     
   }
 
-  @media screen and (max-height: 799px) {
-      
-    
+  @media screen and (min-width: 1200px) {
 
+
+    .SquareDiv {
+        width: 40vw;
+      height: 40vw;
+    }
   }
 
-  @media screen and (max-height: 739px) {
-   
 
-  }
 

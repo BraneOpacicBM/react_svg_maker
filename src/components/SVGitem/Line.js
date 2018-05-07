@@ -21,14 +21,7 @@ class Line extends Component {
 
     render() {
 
-        const devider = this.props.devider;
-        // console.log('THIS IS THE DEVIDER INSIDE LINE.JS')
-        // console.log(this.props.devider)
-
-        console.log('LINEJS FIRST XYCORD')
-        console.log(this.props.xyCord)
-        console.log('LINEJS RESIZED COORD')
-        console.log(this.props.resizedCoord)
+        
 
        
 
@@ -40,8 +33,6 @@ class Line extends Component {
                 height="100%"
                 width="100%"
                 viewBox="0, 0, 100, 100"
-                // viewBox={"0 0 " + this.props.resizedCoord[0] + " " + this.props.resizedCoord[1]}
-                
                 >
                     <line className={classes.Line} x1={this.props.xyCord[0][0]} y1={this.props.xyCord[0][1]} 
                     x2={this.props.xyCord[1][0]} y2={this.props.xyCord[1][1]} 
