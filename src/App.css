@@ -27,9 +27,14 @@
 }
 
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 549px) {
   .MainArea {
     flex-direction: column;
+  }
+
+  .MainArea > * {
+    width: unset;
+    box-sizing: border-box;
   }
 
   .MainArea > *:nth-child(2) {
@@ -37,6 +42,8 @@
     border-bottom: 1px dashed rgb(50, 166, 204);
     border-left: none;
     border-right: none;
+    margin: 0 auto;
+    width: 70vw;
     
   }
 }

@@ -54,29 +54,47 @@
 
 
 @media screen and (max-width: 799px) {
+    
+
+  }
+
+  @media screen and (max-width: 549px) {
+
+    .ShapePicker {
+        display: block;
+    
+    }
+
+
+
+    .ShapePicker > * {
+        display: inline-block;
+    }
+
+    .SquareDiv {
+        height: 70vw;
+        width: 70vw;
+    }
+
     .StrokeAndFill {
-      flex-direction: row;
-      box-sizing: border-box;
-      padding-bottom: 20px;
-      
-    }
-
-
-    .Dashed {
-        border: none;
-        background-color: #fff;
+        flex-direction: row;
         box-sizing: border-box;
-    }
+        padding-bottom: 20px;
+        
+      }
+  
+  
+      .Dashed {
+          border: none;
+          background-color: #fff;
+          box-sizing: border-box;
+      }
+  
+      .MiddleCanvas {
+          overflow: hidden;
+      }
 
-    .MiddleCanvas {
-        overflow: hidden;
-    }
-
-    
-
-   
-    
-
+      
   }
 
   @media screen and (max-width: 1099px) {
@@ -92,13 +110,6 @@
 
   @media screen and (max-width: 419px) {
 
-
-    .StrokeAndFill {
-        padding-bottom: 80px;
-    }
-
-    
-
     .ShapePicker > * {
         padding: 5px 10px;
         margin: 0 auto;
@@ -108,7 +119,6 @@
     }
 
    
-
     
   }
 
