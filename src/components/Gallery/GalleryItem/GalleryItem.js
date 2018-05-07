@@ -13,7 +13,6 @@ const galleryItem = (props) => {
     if(localStorage.getItem('gallery')) {
          fromLocalStorage = JSON.parse(localStorage.getItem('gallery')).map((el, i) => {
             if(el.elementType === 'line') {
-                const devider = el.resizedCoord[0] / 100;
                 return (
                     <div className={classes.Wrapper} key={i}>
                         <div className="line">
@@ -22,8 +21,8 @@ const galleryItem = (props) => {
                                 width="100%"
                                 viewBox="0, 0, 100, 100"                   
                                 >
-                                <line className="" x1={el.xyCord[0][0] / devider} y1={el.xyCord[0][1] / devider} 
-                                x2={el.xyCord[1][0] / devider} y2={el.xyCord[1][1] / devider} 
+                                <line className="" x1={el.xyCord[0][0]} y1={el.xyCord[0][1]} 
+                                x2={el.xyCord[1][0]} y2={el.xyCord[1][1]} 
                                 stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )}
                                 fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                 Sorry, your browser does not support inline SVG.
@@ -33,7 +32,7 @@ const galleryItem = (props) => {
                     </div>
                 )
             } else if (el.elementType === 'circle'){
-                const devider = el.resizedCoord[0] / 100;
+                
                 return (
                     <div className={classes.Wrapper} key={i}>
                         <div className="circle">
@@ -42,8 +41,8 @@ const galleryItem = (props) => {
                                 width="100%"
                                 viewBox="0, 0, 100, 100"                   
                                 >
-                                <circle className="" cx={el.xyCord[0][0] / devider } cy={el.xyCord[0][1] / devider} 
-                                r={Math.sqrt(Math.pow(el.xyCord[1][0], 2) - 2 * el.xyCord[1][0] * el.xyCord[0][0] + Math.pow(el.xyCord[0][0], 2) +  Math.pow(el.xyCord[1][1], 2) - 2 * el.xyCord[1][1] * el.xyCord[0][1] + Math.pow(el.xyCord[0][1], 2)) / devider}
+                                <circle className="" cx={el.xyCord[0][0] } cy={el.xyCord[0][1]} 
+                                r={Math.sqrt(Math.pow(el.xyCord[1][0], 2) - 2 * el.xyCord[1][0] * el.xyCord[0][0] + Math.pow(el.xyCord[0][0], 2) +  Math.pow(el.xyCord[1][1], 2) - 2 * el.xyCord[1][1] * el.xyCord[0][1] + Math.pow(el.xyCord[0][1], 2))}
                                 stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )}
                                 fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                 Sorry, your browser does not support inline SVG.
@@ -53,10 +52,10 @@ const galleryItem = (props) => {
                     </div>
                 )
             } else if (el.elementType === 'square'){
-                const devider = el.resizedCoord[0] / 100;
+                
                 // I quadrant (top-left)
                 if(el.xyCord[0][0] > el.xyCord[1][0] && el.xyCord[0][1] > el.xyCord[1][1] ) {
-                    if(el.xyCord[0][1] > el.xyCord[0][0]) {
+                    if(Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) < Math.abs(el.xyCord[0][1] - el.xyCord[1][1])) {
                         return (
                             <div className={classes.Wrapper} key={i}>
                                 <div className="square">
@@ -66,10 +65,10 @@ const galleryItem = (props) => {
                                         viewBox="0, 0, 100, 100"                   
                                         >
                                         <rect 
-                                        x={el.xyCord[1][0] / devider} 
-                                        y={el.xyCord[1][1] / devider}
-                                        height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider} 
-                                        width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider } 
+                                        x={el.xyCord[1][0]} 
+                                        y={el.xyCord[1][1]}
+                                        height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1])} 
+                                        width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) } 
                                         stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
                                         fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                         Sorry, your browser does not support inline SVG.  
@@ -88,10 +87,10 @@ const galleryItem = (props) => {
                                         viewBox="0, 0, 100, 100"                   
                                         >
                                         <rect 
-                                        x={el.xyCord[1][0] / devider} 
-                                        y={el.xyCord[1][1] / devider}
-                                        height={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) / devider} 
-                                        width={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) / devider } 
+                                        x={el.xyCord[1][0]} 
+                                        y={el.xyCord[1][1]}
+                                        height={Math.abs(el.xyCord[0][0] - el.xyCord[1][0])} 
+                                        width={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) } 
                                         stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
                                         fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                         Sorry, your browser does not support inline SVG.  
@@ -105,7 +104,7 @@ const galleryItem = (props) => {
 
                 // II quadrant (top-right)
                 if(el.xyCord[0][0] < el.xyCord[1][0] && el.xyCord[0][1] > el.xyCord[1][1] ) {
-                   
+                    if(Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) > Math.abs(el.xyCord[0][1] - el.xyCord[1][1])){
                         return (
                             <div className={classes.Wrapper} key={i}>
                                 <div className="square">
@@ -115,11 +114,11 @@ const galleryItem = (props) => {
                                         viewBox="0, 0, 100, 100"                   
                                         >
                                         <rect
-                                        transform={"translate(0 -" + Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider + ")" } 
-                                        x={el.xyCord[0][0] / devider} 
-                                        y={el.xyCord[0][1] / devider}
-                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider} 
-                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider } 
+                                        transform={"translate(0 -" + Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) + ")" } 
+                                        x={el.xyCord[0][0]} 
+                                        y={el.xyCord[0][1]}
+                                        height={Math.abs(el.xyCord[0][0] - el.xyCord[1][0])} 
+                                        width={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) } 
                                         stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
                                         fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                         Sorry, your browser does not support inline SVG.  
@@ -128,40 +127,91 @@ const galleryItem = (props) => {
                                 </div>
                             </div>
                         )
+                    } else {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect
+                                        transform={"translate(0 -" + Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) + ")" } 
+                                        x={el.xyCord[0][0]} 
+                                        y={el.xyCord[0][1]}
+                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1])} 
+                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    }
+                        
                     
                 }
 
                  // IV quadrant (top-right)
                  if(el.xyCord[0][0] > el.xyCord[1][0] && el.xyCord[0][1] < el.xyCord[1][1] ) {
-                   
-                    return (
-                        <div className={classes.Wrapper} key={i}>
-                            <div className="square">
-                                <svg className="" 
-                                    height="100%"
-                                    width="100%"
-                                    viewBox="0, 0, 100, 100"                   
-                                    >
-                                    <rect
-                                    transform={"translate(0 -" + Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider + ")" } 
-                                    x={el.xyCord[1][0] / devider} 
-                                    y={el.xyCord[1][1] / devider}
-                                    height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider} 
-                                    width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) / devider } 
-                                    stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
-                                    fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
-                                    Sorry, your browser does not support inline SVG.  
-                                </svg>
-    
+                    if(Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) > Math.abs(el.xyCord[0][1] - el.xyCord[1][1])) {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect
+                                        transform={"translate(0 -" + Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) + ")" } 
+                                        x={el.xyCord[1][0]} 
+                                        y={el.xyCord[1][1]}
+                                        height={Math.abs(el.xyCord[0][0] - el.xyCord[1][0])} 
+                                        width={Math.abs(el.xyCord[0][0] - el.xyCord[1][0]) } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
+                    } else {
+                        return (
+                            <div className={classes.Wrapper} key={i}>
+                                <div className="square">
+                                    <svg className="" 
+                                        height="100%"
+                                        width="100%"
+                                        viewBox="0, 0, 100, 100"                   
+                                        >
+                                        <rect
+                                        transform={"translate(0 -" + Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) + ")" } 
+                                        x={el.xyCord[1][0]} 
+                                        y={el.xyCord[1][1]}
+                                        height={Math.abs(el.xyCord[0][1] - el.xyCord[1][1])} 
+                                        width={Math.abs(el.xyCord[0][1] - el.xyCord[1][1]) } 
+                                        stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
+                                        fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
+                                        Sorry, your browser does not support inline SVG.  
+                                    </svg>
+        
+                                </div>
+                            </div>
+                        )
+                    }
+                   
+                    
                 
             }
 
                 // III quadrant (right-bottom)
                 if(el.xyCord[0][0] < el.xyCord[1][0] && el.xyCord[0][1] < el.xyCord[1][1] ) {
-                    if(el.xyCord[1][1] > el.xyCord[1][0]) {
+                    if(Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) > Math.abs(el.xyCord[1][0] - el.xyCord[0][0])) {
                         return (
                             <div className={classes.Wrapper} key={i}>
                                 <div className="square">
@@ -171,10 +221,10 @@ const galleryItem = (props) => {
                                         viewBox="0, 0, 100, 100"                   
                                         >
                                         <rect 
-                                        x={el.xyCord[0][0] / devider} 
-                                        y={el.xyCord[0][1] / devider}
-                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider} 
-                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) / devider } 
+                                        x={el.xyCord[0][0]} 
+                                        y={el.xyCord[0][1]}
+                                        height={Math.abs(el.xyCord[1][1] - el.xyCord[0][1])} 
+                                        width={Math.abs(el.xyCord[1][1] - el.xyCord[0][1]) } 
                                         stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
                                         fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                         Sorry, your browser does not support inline SVG.  
@@ -193,10 +243,10 @@ const galleryItem = (props) => {
                                         viewBox="0, 0, 100, 100"                   
                                         >
                                         <rect 
-                                        x={el.xyCord[0][0] / devider} 
-                                        y={el.xyCord[0][1] / devider}
-                                        height={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) / devider} 
-                                        width={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) / devider } 
+                                        x={el.xyCord[0][0]} 
+                                        y={el.xyCord[0][1]}
+                                        height={Math.abs(el.xyCord[1][0] - el.xyCord[0][0])} 
+                                        width={Math.abs(el.xyCord[1][0] - el.xyCord[0][0]) } 
                                         stroke={getRGBA(el.rgbaStroke.r, el.rgbaStroke.g, el.rgbaStroke.b, el.rgbaStroke.a )} 
                                         fill={getRGBA(el.rgbaFill.r, el.rgbaFill.g, el.rgbaFill.b, el.rgbaFill.a)} />
                                         Sorry, your browser does not support inline SVG.  
