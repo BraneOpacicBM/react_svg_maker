@@ -8,13 +8,12 @@
   display: flex;
   width: 100%;
   border: 1px dashed rgb(50, 166, 204);
-  height: 80vh;
   box-sizing: border-box;
   
 }
 
 .MainArea > * {
-  flex: 1;
+  width: 25vw;
   box-sizing: border-box;
 }
 
@@ -23,7 +22,7 @@
 .MainArea > *:nth-child(2) {
   border-left: 1px dashed rgb(50, 166, 204);
   border-right: 1px dashed rgb(50, 166, 204);
-  flex: 3;
+  width: 50vw;
   min-height: 30vh;
 }
 

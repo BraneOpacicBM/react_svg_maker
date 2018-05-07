@@ -42,8 +42,11 @@ class Canvas extends Component {
     prepareCoordinates() {
         let coordinatesArray = [];
         let resizedMain = document.getElementById('resize');
-        coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
-        this.props.getResizedCoordinates(coordinatesArray);
+        if(resizedMain){
+            coordinatesArray = [resizedMain.offsetWidth, resizedMain.offsetHeight];
+            this.props.getResizedCoordinates(coordinatesArray);
+        }
+        
 
         
 
@@ -67,10 +70,12 @@ class Canvas extends Component {
             };
         };
 
-        window.addEventListener('onload', this.prepareCoordinates());
+        if(this.props.match.path === "/canvas") {
+            window.addEventListener('onload', this.prepareCoordinates());
         
         window.addEventListener('resize', debounce(() => this.prepareCoordinates(),
 20, false), false);
+        }
 
 
         this.setState({
@@ -88,6 +93,8 @@ class Canvas extends Component {
 
         console.log('CANVAS VALUUEE')
         console.log(this.state.coordinatesValue)
+        console.log('from CANVAS PROPS.matchPATH')
+        console.log(this.props.match.path)
        
 
         let shapePicker = this.state.shapePickerSelect.map((shape, i) => {
