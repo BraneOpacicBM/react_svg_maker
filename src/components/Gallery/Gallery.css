@@ -1,6 +1,9 @@
+.Gallery {
+    width: 100% !important;
+}
+
 .GalleryInside {
-    background-color: red;
-    color: blue;
+
     display: block;
     width: 70%;
     margin: 0 auto;

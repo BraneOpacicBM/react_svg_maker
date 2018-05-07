@@ -16,8 +16,11 @@ class Gallery extends Component {
             <Auxx>
                 <div className={classes.Gallery}>
                     <div className={classes.GalleryInside}>
-                        <GalleryItem />
-                        2
+                    
+                        <div>TEST</div>
+                        <div>TEST</div>
+                        <div>TEST</div>
+                        <div>TEST</div>
                     </div>
                 </div>
             </Auxx>
