@@ -8,10 +8,10 @@ Tic-tac-toe React Native application
 ![First Screen](src/assets/canvas-one-resize.jpg "First screen on mobile")
 
 ## Canvas Screen No.2
-![Second Screen](src/assets/canvas-one-resize.jpg "Second screen on mobile")
+![Second Screen](src/assets/canvas-two-resize.jpg "Second screen on mobile")
 
 ## Gallery Screen
-![Third Screen](src/assets/canvas-one-resize.jpg "Third screen on mobile")
+![Third Screen](src/assets/gallery-resize.jpg "Third screen on mobile")
 
 
 ## Getting Started
