@@ -15,9 +15,6 @@ class Circle extends Component {
     }
 
     render() {
-
-        
-
         let svg = null;
 
         if(this.props.xyCord.length === 2) {
@@ -26,7 +23,7 @@ class Circle extends Component {
                 height="100%"
                 width="100%"
                 viewBox="0, 0, 100, 100"
-                // viewBox={"0 0 " + this.props.resizedCoord[0] + " " + this.props.resizedCoord[1]}
+                
                 >   <circle className={classes.Circle} 
                 cx={this.props.xyCord[0][0]} cy={this.props.xyCord[0][1]} 
                 r={Math.sqrt(Math.pow(this.props.xyCord[1][0], 2) - 2 * this.props.xyCord[1][0] * this.props.xyCord[0][0] + Math.pow(this.props.xyCord[0][0], 2) +  Math.pow(this.props.xyCord[1][1], 2) - 2 * this.props.xyCord[1][1] * this.props.xyCord[0][1] + Math.pow(this.props.xyCord[0][1], 2))} 
