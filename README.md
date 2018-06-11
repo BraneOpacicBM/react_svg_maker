@@ -1,6 +1,6 @@
 # Project Title
 
-Tic-tac-toe React Native application
+React SVG elements maker
 
 ## Screenshots
 
